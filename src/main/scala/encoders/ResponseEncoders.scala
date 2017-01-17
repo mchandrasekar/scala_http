@@ -1,0 +1,4 @@
+package encoders
+import api.HelloResponseEncoders
+
+trait ResponseEncoders extends ErrorResponseEncoders with HelloResponseEncoders
