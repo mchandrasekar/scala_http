@@ -33,7 +33,7 @@ object HelloApi {
       if (name == "success") Ok(Hello(name))
       else BadRequest(new IllegalArgumentException("empty string"))
     }
-  
+
   def getTodos: Endpoint[List[Todo]] = get("todos") {
     Ok(Todo.list())
   }
@@ -41,8 +41,14 @@ object HelloApi {
   def postTodo: Endpoint[Todo] = post("todos" :: postedTodo) { t: Todo =>
     Todo.save(t)
     Created(t)
+  } handle {
+    case e: Exception => {
+      e.getClass.getSimpleName match {
+        case "NotParsed" => BadRequest(new Exception("Missing Parameters"))
+      }
+    }
   }
-  
+
   def postedTodo: Endpoint[Todo] = jsonBody[UUID => Todo].map(_(UUID.randomUUID()))
 }
 
