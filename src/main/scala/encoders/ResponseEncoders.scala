@@ -1,4 +1,7 @@
 package encoders
 import api.HelloResponseEncoders
+import encoders.ToDoEncoders
+import encoders.ToDoEncoders
+import encoders.ToDoEncoders
 
-trait ResponseEncoders extends ErrorResponseEncoders with HelloResponseEncoders
+trait ResponseEncoders extends ErrorResponseEncoders with HelloResponseEncoders with ToDoEncoders

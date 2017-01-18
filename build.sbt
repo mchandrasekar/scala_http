@@ -9,5 +9,6 @@ EclipseKeys.withSource := true
 libraryDependencies ++= Seq(
   "com.github.finagle" % "finch-core_2.11" % "0.11.1",
   "com.github.finagle" % "finch-circe_2.11" % "0.11.1",
-  "io.circe" %% "circe-generic" % circeVersion
+  "io.circe" %% "circe-generic" % circeVersion,
+  "com.typesafe.play" % "play-json_2.11" % "2.4.8"
 )

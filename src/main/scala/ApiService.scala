@@ -1,9 +1,10 @@
 import com.twitter.finagle.Service
-import com.twitter.finagle.http.{Request, Response}
+import com.twitter.finagle.http.{ Request, Response }
 
 import api.v1.hello.HelloApi
 import encoders.ResponseEncoders
 import io.finch.circe.encodeCirce
+import encoders.ToDoEncoders
 
 object ApiService extends ResponseEncoders {
   private def api = HelloApi.helloApi
